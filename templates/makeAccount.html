@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"
+        <meta name = "viewport" content="width=device-width,inital-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static',filename = 'styles/makeAccount.css')}}" type="text/css" media="screen" charset="utf-8">
+        <title>todo list</title>
+    </head>
+
+    <body>
+        <div class = "makeAccount">
+            <div class="form">
+                {% block content %} 
+                <form action="/makeAccount" method="POST" onsubmit="confirmPassAndUser();">
+                    <div class = "form-username">
+                        <label>Username</label>
+                        <input type = "text"  placeholder="create username" name = "username" id="username">
+                    </div>
+                    
+                    <div class="form-password">
+                        <label>Password</label>
+                        <input type = "text" placeholder="create password" name="password" id = password>
+                    </div>
+                    <!-- Messages to user should appear here-->
+                    <p  id="message"></p>
+
+                    <div class="form-confirm password">
+                        <label>Confirm Password</label>
+                        <input type="text" placeholder="confirm password" name = "cpassword">
+                    </div>
+                    
+                    <div class ="form-submit">
+                        <button type="submit" class="btn makeaccount">Create Account</button>
+
+                        <script type="text/javaScript">
+                            function confirmPassAndUser() {
+                                //comeback to this and try to get an error message to pop if the users enter mismatching passwords
+                                var password, cpassword,text
+                                
+                                password = document.getElementsByName("password").value;
+                                cpassword = document.getElementsByName("cpassword").value;
+
+                                if(password != cpassword){
+                                    // print error message under password
+
+                                    text = 'passwords do not match'
+                                }
+                                else{
+                                    text = ""
+                                }
+                                document.getElementById("message").innerHTML = text;
+                            }
+                        </script>
+                    
+                    </div>
+                    <p class="signin"><a href= {{url_for('signInPage')}}> have an account ?</a> </p>
+                </form>
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+ 
+</html>
