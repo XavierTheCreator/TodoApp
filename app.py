@@ -19,7 +19,7 @@ app.config['SECRET_KEY'] = '\x14B~^\x07\xe1\x197\xda\x18\xa6[[\x05\x03QVg\xce%\x
 app.config['DEBUG'] = True
 
 # Database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/Richi/Desktop/flask_project/user.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 db = SQLAlchemy(app)
